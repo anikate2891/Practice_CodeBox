@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 180px;
+    width: 100%;
+    background-color: rgb(30, 43, 78);
+    padding-top: 15px;
+}
+#main h3{
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+}
+#main h4{
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+#data{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15px;
+    height: 300px;
+    width: 80%;
+}
+#about{
+    text-align: center;
+    background-color: rgb(208, 210, 216);
+    margin-bottom: 15px;
+}
+#about h5{
+    font-size: 25px;
+    padding-top: 25px;
+}
+#about p{
+    font-size: 15px;
+    padding: 25px;
+    font-weight: 10px;
+    padding-bottom: 25px;
+}
+#education{
+    text-align: center;
+    background-color: skyblue;
+    margin-bottom: 15px;
+    height: 220px;
+}
+#education h5{
+    font-size: 25px;
+    padding: 20px;
+}
+
+#p1{
+    font-size: 20px;
+    font-weight: 10px;
+    padding: 15px;
+    width: 525px;
+    background-color: rgb(254, 254, 254);
+    margin-left: 350px;
+    margin-bottom: 9px;
+}
+
+#p2{
+    font-size: 20px;
+    font-weight: 10px;
+    padding: 15px;
+    width: 525px;
+    background-color: rgb(254, 254, 254);
+    margin-left: 350px; 
+}
+
+#skill{
+    background-color: rgb(238, 238, 175);
+    text-align: center;
+    height: 320px;
+    margin-bottom: 9px;
+}
+li{
+    list-style: none;
+}
+#skill h5{
+    font-size: 25px;
+    padding: 20px;
+    margin-bottom: 9px;
+}
+#skill ul li{
+    padding: 12px;
+    width: 425px;
+    background-color: rgb(254, 254, 254);
+    margin-left: 400px;
+    margin-bottom: 3px;
+}
+
+#project{
+    background-color: rgb(153, 213, 157);
+    text-align: center;
+    height: 225px;
+    margin-bottom: 15px;
+}
+#project h5{
+    font-size: 25px;
+    padding: 20px;
+}
+#project ul li{
+    padding: 12px;
+    width: 525px;
+    background-color: rgb(254, 254, 254);
+    margin-left: 350px;
+    margin-bottom: 9px;
+}
+
+#contact{
+    background-color: rgb(233, 159, 220);
+    text-align: center;
+    height: 140px;
+    margin-bottom: 9px;
+}
+#contact h5{
+    font-size: 25px;
+    padding: 20px;
+}
+#contact p{
+    font-size: 20px;
+    padding: 4px;
+    background-color: white;
+    width: 360px;
+    margin-left: 440px;
+    margin-bottom: 3px;
+}
+#footer{
+    width: 100% !important;
+    background-color: rgb(30, 43, 78);
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+    position: relative;
+    bottom: 0;
+}

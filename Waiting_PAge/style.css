@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #111;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 45px;
+    color: #555;
+}
+
+/* CSS */
+.btn{
+    margin-top: 10px;
+    --accent1: #6ee7b7;
+    --accent2: #3b82f6;
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:12px;
+    border:0;
+    font-weight:600;
+    font-size:16px;
+    line-height:1;
+    color:#05292b;
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    box-shadow: 0 6px 18px rgba(59,130,246,0.16);
+    cursor:pointer;
+    transition: transform .14s ease, box-shadow .14s ease, opacity .12s;
+    user-select:none;
+}
+
+/* Hover / active / focus */
+.btn:hover{ 
+    transform: translateY(-3px); 
+    box-shadow: 0 12px 30px rgba(59,130,246,0.20); }
+.btn:active{ 
+    transform: 
+    translateY(0); 
+    opacity:0.95; }
+
+.btn:focus{ 
+    outline:3px solid rgba(99,102,241,0.18); 
+    outline-offset:3px; }
+
+/* Small variant */
+.btn.sm{
+    padding:8px 14px; 
+    font-size:14px; 
+    border-radius:10px; }
+
+/* Ghost / outline variant */
+.btn.ghost{
+    background:transparent;
+    color:var(--accent2);
+    box-shadow:none;
+    border:2px solid rgba(59,130,246,0.12);
+}
+
+
+
+

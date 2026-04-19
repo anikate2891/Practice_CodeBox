@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #333;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: wheat;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background-image: url('https://c.ndtvimg.com/2022-05/b4b1tdu8_narendra-modi-stadium-ipl-2022_625x300_29_May_22.jpeg?im=FeatureCrop,algorithm=dnn,width=1200,height=675');
+    background-size: cover;   /* object-fit: contain */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.hero{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.data{
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/059/494/377/non_2x/indian-premier-league-official-original-ipl-team-official-logo-premium-design-for-digital-download-free-vector.jpg');
+    background-size: cover;   
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    background: linear-gradient(180deg, #2f66be 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 36px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transform: translateZ(0);
+    transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms;
+    cursor: pointer;
+    user-select: none;
+}
+
+button:hover,
+button:focus {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+    outline: none;
+}
+
+button:active {
+    transform: translateY(-1px) scale(0.995);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+h1{
+    display: none;
+}
+
+h2{
+    display: none;
+}
+
+h3{
+    display: none;
+}

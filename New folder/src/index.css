@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFD600;
+  --color-secondary: #0D0D0D;
+  --color-accent-hover: #FFEA00;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B0B0B0;
+  --color-bg-main: #0D0D0D;
+  --color-bg-alt: #151515;
+  --color-border-dim: #222222;
+
+  --font-mono: "JetBrains Mono", "Courier New", Courier, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-bg-main text-text-primary font-mono antialiased;
+    overflow-x: hidden;
+  }
+  #root {
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-glow-yellow {
+    text-shadow: 0 0 10px rgba(255, 214, 0, 0.4);
+  }
+  .bg-glass {
+    @apply bg-secondary/80 backdrop-blur-md;
+  }
+  .border-brutal {
+    @apply border-2 border-primary;
+  }
+  .animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+  }
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .grid-divider {
+    @apply bg-border-dim gap-px;
+  }
+}
