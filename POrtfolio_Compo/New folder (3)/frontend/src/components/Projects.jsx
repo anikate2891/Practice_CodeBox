@@ -19,7 +19,7 @@ const projects = [
     {
     id: 2,
     title: 'AI Resume Builder',
-    subtitle: 'AI Web App · 2025',
+    subtitle: 'AI Web App · 2026',
     desc: 'Built an AI-powered resume platform that generates ATS-optimized resumes from user input or LinkedIn data. It also provides role-specific interview questions and resume scoring, removing the need for paid resume tools.',
     tags: ['React', 'Node.js', 'MongoDB', 'AI API'],
     tagColors: ['bg-accent-orange/40', 'bg-accent-blue/40', 'bg-accent-yellow', 'bg-accent-red/30'],
@@ -34,7 +34,7 @@ const projects = [
   {
     id: 3,
     title: 'NexChat AI',
-    subtitle: 'AI Chat App · 2025',
+    subtitle: 'AI Chat App · 2026',
     desc: 'Developed an AI chat application that provides uninterrupted access to AI conversations without strict usage limits. Includes authentication, persistent chat history, and email verification for a complete user experience similar to modern AI chat platforms.',
     tags: ['React', 'Node.js', 'MongoDB', 'Auth'],
     tagColors: ['bg-accent-blue/40', 'bg-accent-yellow', 'bg-accent-orange/40', 'bg-accent-red/30'],

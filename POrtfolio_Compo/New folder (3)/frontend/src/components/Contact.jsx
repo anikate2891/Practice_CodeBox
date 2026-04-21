@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 
-
-
-
 export default function Contact() {
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const sectionRef = useRef(null);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -21,10 +22,44 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+    setError("All fields are required");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(form.email)) {
+    setError("Enter a valid email");
+    return;
+  }
+  
+    setLoading(true);
+    setError("");
+
+  try {
+    const res = await fetch("http://localhost:3000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.msg);
     setSubmitted(true);
-  };
+    setForm({ name: "", email: "", message: "" });
+  } catch (err) {
+    setError("Failed to send message. Try again.");
+    console.log('HandleSubmit: ',err)
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section id="contact" className="py-24 px-6 max-w-4xl mx-auto" ref={sectionRef}>
@@ -69,11 +104,14 @@ export default function Contact() {
             <div className="text-7xl animate-bounce-in">🎉</div>
             <h3 className="font-kalam font-bold text-4xl text-ink">Message sent!</h3>
             <p className="font-patrick text-xl text-ink/70 max-w-sm">
-              Got it! I&apos;ll get back to you faster than you can say &ldquo;responsive design&rdquo;.
+              Got it! I'll get back to you soon.
             </p>
             <button
-              onClick={() => { setSubmitted(false); setForm({ name: '', email: '', message: '' }); }}
-              className="font-kalam font-bold text-lg bg-ink text-paper px-8 py-3 wobbly border-ink border-[3px] shadow-hard btn-press mt-4"
+              type="button"
+              onClick={() => {
+                setSubmitted(false);
+                setForm({ name: "", email: "", message: "" });
+              }}
             >
               Send Another ✏️
             </button>
@@ -134,13 +172,17 @@ export default function Contact() {
               />
             </div>
 
+            {error && (
+            <p className="text-red-500 text-center font-patrick">{error}</p>
+          )}
+
             {/* Submit */}
             <button
               type="submit"
-              id="contact-submit"
-              className="w-full font-kalam font-bold text-2xl bg-ink text-paper py-4 wobbly border-ink border-[3px] shadow-hard btn-press hover:-translate-y-1 hover:shadow-hard transition-all duration-150 mt-2"
+              disabled={loading}
+              className="w-full font-kalam font-bold text-2xl bg-ink text-paper py-4 wobbly border-ink border-[3px] shadow-hard btn-press mt-2"
             >
-              Send Message 🚀
+              {loading ? "Sending..." : "Send Message 🚀"}
             </button>
           </form>
         )}
