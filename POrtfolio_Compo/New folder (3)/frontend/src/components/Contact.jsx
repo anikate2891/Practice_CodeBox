@@ -85,7 +85,7 @@ export default function Contact() {
 
       {/* Sticky note form container */}
       <div
-        className="reveal relative bg-[#fef9c3] border-ink border-[3px] wobbly shadow-hard p-10 md:p-14"
+        className="reveal relative bg-[#fef9c3] dark:bg-[#b0892b] border-ink border-[3px] wobbly shadow-hard p-10 md:p-14"
         style={{ transitionDelay: '0.25s' }}
       >
         {/* Tape on top */}

@@ -11,7 +11,7 @@ const features = [
   },
   {
     icon: '🧠',
-    iconBg: 'bg-[#fef08a]',
+    iconBg: 'bg-accent-yellow dark:bg-[#b0892b]',
     title: 'Data Structures',
     desc: 'Strong understanding of DSA for writing optimized and efficient code, improving problem-solving and logic building.',
     rotate: 'rotate-1',
@@ -35,7 +35,7 @@ const features = [
   },
   {
     icon: '🔗',
-    iconBg: 'bg-[#fef08a]',
+    iconBg: 'bg-accent-yellow dark:bg-[#b0892b]',
     title: 'API Integration',
     desc: 'Connecting frontend with backend services, handling API calls, and managing data flow efficiently.',
     rotate: '-rotate-1',

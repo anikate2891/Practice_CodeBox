@@ -18,7 +18,7 @@ export default {
         surface: 'rgb(var(--color-surface) / <alpha-value>)',
         sticky: 'rgb(var(--color-sticky) / <alpha-value>)',
         'accent-orange': '#fb923c',
-        'accent-yellow': '#fef08a',
+        'accent-yellow': 'rgb(var(--color-accent-yellow) / <alpha-value>)',
         'accent-red': '#ef4444',
         'accent-blue': '#60a5fa',
       },

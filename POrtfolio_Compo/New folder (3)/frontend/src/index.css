@@ -15,6 +15,8 @@
   /* #ffffff */
   --color-sticky: 254 249 195;
   /* #fef9c3 */
+  --color-accent-yellow: 254 240 138;
+  /* #fef08a */
 }
 
 html.dark {
@@ -26,6 +28,8 @@ html.dark {
   /* #252219 — card surface in dark */
   --color-sticky: 41 35 16;
   /* #292310 — dark warm sticky yellow */
+  --color-accent-yellow: 176 137 43;
+  /* #b0892b — deeper yellow for dark-mode readability */
 }
 
 /* ============================================
