@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anikate — 3D Gallery Experience</title>
+  <meta name="description" content="A cinematic 3D scroll-based portfolio gallery by Anikate. Walk through a spatial hallway of curated work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="hallway.css" />
+</head>
+<body>
+
+  <!-- Ambient Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Floor Glow -->
+  <div class="floor-glow"></div>
+
+  <!-- ===== Navbar Section ===== -->
+  <!-- HUD Overlay -->
+  <div class="hud">
+    <div class="hud-left">
+      <span class="hud-label">DEPTH</span>
+      <div class="progress-track">
+        <div class="progress-fill" id="depth-progress"></div>
+      </div>
+    </div>
+    <div class="hud-center">
+      <div class="logo">A</div>
+    </div>
+    <div class="hud-right">
+      <span class="hud-label">SCROLL TO ADVANCE</span>
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== About Section ===== -->
+  <!-- Entry Screen -->
+  <div class="entry-screen" id="entry-screen">
+    <div class="entry-content">
+      <p class="entry-eyebrow">PORTFOLIO — 2025</p>
+      <h1 class="entry-title">Walk Into<br /><em>The Work</em></h1>
+      <p class="entry-sub">A spatial gallery of selected projects.<br/>Scroll to traverse.</p>
+      <button class="entry-btn" id="entry-btn">Enter Gallery <span>↓</span></button>
+    </div>
+    <div class="entry-grain"></div>
+  </div>
+
+  <!-- ===== Project Section ===== -->
+  <!-- Main 3D Viewport -->
+  <div class="viewport" id="viewport">
+    <div class="hallway-track" id="hallway-track">
+
+      <!-- Hallway walls & ceiling lines -->
+      <div class="hall-line hall-line--top-left"></div>
+      <div class="hall-line hall-line--top-right"></div>
+      <div class="hall-line hall-line--bottom-left"></div>
+      <div class="hall-line hall-line--bottom-right"></div>
+      <div class="vanishing-point"></div>
+
+      <!-- ===== PAIR 1 — Z: 0 ===== -->
+      <div class="art-frame art-frame--left" style="transform: translateZ(0px) translateX(-340px) rotateY(35deg);"
+           data-index="0" data-modal="0">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=520&q=80" alt="Abstract Digital Art" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">01</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">VISUAL SYSTEMS</span>
+          <h3 class="frame-title">Chromatic<br/>Architecture</h3>
+        </div>
+      </div>
+
+      <div class="art-frame art-frame--right" style="transform: translateZ(0px) translateX(340px) rotateY(-35deg);"
+           data-index="1" data-modal="1">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=520&q=80" alt="Motion Design" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">02</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">MOTION DESIGN</span>
+          <h3 class="frame-title">Kinetic<br/>Resonance</h3>
+        </div>
+      </div>
+
+      <!-- ===== PAIR 2 — Z: -700 ===== -->
+      <div class="art-frame art-frame--left" style="transform: translateZ(-700px) translateX(-340px) rotateY(35deg);"
+           data-index="2" data-modal="2">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=520&q=80" alt="Retro Tech" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">03</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">INTERFACE DESIGN</span>
+          <h3 class="frame-title">Retro Futures<br/>Vol. II</h3>
+        </div>
+      </div>
+
+      <div class="art-frame art-frame--right" style="transform: translateZ(-700px) translateX(340px) rotateY(-35deg);"
+           data-index="3" data-modal="3">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1614729939124-032d1e6c9945?w=520&q=80" alt="3D Render" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">04</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">3D & RENDER</span>
+          <h3 class="frame-title">Spatial<br/>Dimensions</h3>
+        </div>
+      </div>
+
+      <!-- ===== PAIR 3 — Z: -1400 ===== -->
+      <div class="art-frame art-frame--left" style="transform: translateZ(-1400px) translateX(-340px) rotateY(35deg);"
+           data-index="4" data-modal="4">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=520&q=80" alt="Code Aesthetics" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">05</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">DEVELOPMENT</span>
+          <h3 class="frame-title">Code as<br/>Canvas</h3>
+        </div>
+      </div>
+
+      <div class="art-frame art-frame--right" style="transform: translateZ(-1400px) translateX(340px) rotateY(-35deg);"
+           data-index="5" data-modal="5">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=520&q=80" alt="Brand Identity" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">06</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">BRAND IDENTITY</span>
+          <h3 class="frame-title">Mark &<br/>Signal</h3>
+        </div>
+      </div>
+
+      <!-- ===== PAIR 4 — Z: -2100 ===== -->
+      <div class="art-frame art-frame--left" style="transform: translateZ(-2100px) translateX(-340px) rotateY(35deg);"
+           data-index="6" data-modal="6">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=520&q=80" alt="Photography" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">07</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">PHOTOGRAPHY</span>
+          <h3 class="frame-title">Light &<br/>Geometry</h3>
+        </div>
+      </div>
+
+      <div class="art-frame art-frame--right" style="transform: translateZ(-2100px) translateX(340px) rotateY(-35deg);"
+           data-index="7" data-modal="7">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1601513237763-10aaaa60fbcf?w=520&q=80" alt="Typography" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">08</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">TYPOGRAPHY</span>
+          <h3 class="frame-title">Letters in<br/>Space</h3>
+        </div>
+      </div>
+
+      <!-- ===== PAIR 5 — Z: -2800 ===== -->
+      <div class="art-frame art-frame--left" style="transform: translateZ(-2800px) translateX(-340px) rotateY(35deg);"
+           data-index="8" data-modal="8">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1575908539614-ff89490f4a78?w=520&q=80" alt="Data Visualization" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">09</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">DATA VIS</span>
+          <h3 class="frame-title">Structure of<br/>Information</h3>
+        </div>
+      </div>
+
+      <div class="art-frame art-frame--right" style="transform: translateZ(-2800px) translateX(340px) rotateY(-35deg);"
+           data-index="9" data-modal="9">
+        <div class="frame-inner">
+          <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=520&q=80" alt="Generative Art" loading="lazy" />
+          <div class="frame-overlay">
+            <span class="frame-num">10</span>
+          </div>
+        </div>
+        <div class="frame-label">
+          <span class="frame-category">GENERATIVE</span>
+          <h3 class="frame-title">Algorithmic<br/>Dreams</h3>
+        </div>
+      </div>
+
+    </div><!-- end hallway-track -->
+  </div><!-- end viewport -->
+
+  <!-- ===== Contact Section ===== -->
+  <!-- End of Gallery Screen -->
+  <div class="end-screen" id="end-screen">
+    <div class="end-content">
+      <p class="end-eyebrow">END OF GALLERY</p>
+      <h2 class="end-title"><em>Let's Build<br/>Something.</em></h2>
+      <a href="mailto:hello@anikate.dev" class="end-cta">Get In Touch</a>
+    </div>
+  </div>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="modal-body">
+        <div class="modal-left">
+          <div class="modal-badge-row">
+            <span class="gold-badge" id="modal-badge">CATEGORY</span>
+            <span class="modal-num" id="modal-num">01</span>
+          </div>
+          <h2 class="modal-title" id="modal-title">Project Title</h2>
+          <p class="modal-desc" id="modal-desc">Project description goes here. A compelling narrative about the work, process, and outcome.</p>
+
+          <div class="modal-meta">
+            <div class="meta-item">
+              <span class="meta-label">Year</span>
+              <span class="meta-value" id="modal-year">2025</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Role</span>
+              <span class="meta-value" id="modal-role">Designer & Developer</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Stack</span>
+              <span class="meta-value" id="modal-stack">React, Three.js</span>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <a href="#" class="action-btn action-btn--primary" id="modal-link">View Project</a>
+            <a href="#" class="action-btn action-btn--ghost">Case Study</a>
+          </div>
+        </div>
+
+        <div class="modal-right">
+          <div class="modal-gallery">
+            <div class="gallery-item gallery-item--large" id="modal-img-1">
+              <img src="" alt="" id="modal-img-1-src" />
+            </div>
+            <div class="gallery-item" id="modal-img-2">
+              <img src="" alt="" id="modal-img-2-src" />
+            </div>
+            <div class="gallery-item" id="modal-img-3">
+              <img src="" alt="" id="modal-img-3-src" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="hallway.js"></script>
+</body>
+</html>
